@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE checkHeft [ 
+<!ENTITY model SYSTEM 'http://192.168.1.2/golfVII.xml'>
+<!ELEMENT checkHeft (car,activities)>
+<!ATTLIST checkHeft owner CDATA #REQUIRED>
+<!ATTLIST checkHeft licensePlate CDATA #REQUIRED>
+<!ELEMENT car (#PCDATA)>
+<!ATTLIST car fin CDATA #REQUIRED>
+<!ELEMENT activities (inspection*|tuv*)>
+<!ELEMENT inspection (oilChange?,ofChange?,afChange?,breaksChange?)>
+<!ATTLIST inspection desc CDATA #IMPLIED>
+<!ATTLIST inspection date CDATA #REQUIRED>
+<!ATTLIST inspection company CDATA #REQUIRED>
+<!ELEMENT oilChange (#PCDATA)>
+<!ATTLIST oilChange desc CDATA #IMPLIED>
+<!ELEMENT ofChange (#PCDATA)>
+<!ATTLIST ofChange desc CDATA #IMPLIED>
+<!ELEMENT afChange (#PCDATA)>
+<!ATTLIST afChange desc CDATA #IMPLIED>
+<!ELEMENT breaksChange (fLeft?,fRight?,rLeft?,rRight?)>
+<!ATTLIST breaksChange desc CDATA #IMPLIED>
+<!ELEMENT fLeft (#PCDATA)>
+<!ATTLIST fLeft desc CDATA #IMPLIED>
+<!ELEMENT fRight (#PCDATA)>
+<!ATTLIST fRight desc CDATA #IMPLIED>
+<!ELEMENT rLeft (#PCDATA)>
+<!ATTLIST rLeft desc CDATA #IMPLIED>
+<!ELEMENT rRight (#PCDATA)>
+<!ATTLIST rRight desc CDATA #IMPLIED>
+<!ELEMENT tuv (tiers,checks,defects?)>
+<!ATTLIST tuv desc CDATA #IMPLIED>
+<!ATTLIST tuv date CDATA #REQUIRED>
+<!ATTLIST tuv company CDATA #REQUIRED>
+<!ELEMENT checks (tiers,emission)>
+<!ATTLIST checks desc CDATA #IMPLIED>
+<!ELEMENT tiers (#PCDATA)>
+<!ATTLIST tiers desc CDATA #IMPLIED>
+<!ELEMENT emission (#PCDATA)>
+<!ATTLIST emission desc CDATA #IMPLIED>
+<!ELEMENT defects (breaks?,airbag?)>
+<!ATTLIST defects desc CDATA #IMPLIED>
+<!ELEMENT breaks EMPTY>
+<!ATTLIST breaks desc CDATA #IMPLIED>
+<!ATTLIST breaks pos CDATA #REQUIRED>
+<!ELEMENT airbag EMPTY>
+<!ATTLIST airbag desc CDATA #IMPLIED>
+<!ATTLIST airbag pos CDATA #REQUIRED>
+]>
+<checkHeft licensePlate="AB-CD-1234" owner="Jonas Schell">
+    
+    <activities>
+        <inspection company="KFZ-Meister Schröder" date="2022-02-12T09:00:00.000Z" desc="car inspection">
+            <oilChange desc="oil change nec">true</oilChange>
+            <ofChange desc="oil filter change nec">true</ofChange>
+            <afChange desc="air filter change nec">false</afChange>
+            <breaksChange desc="breaks status">
+                <fLeft desc="front left change nec">true</fLeft>
+                <fRight desc="front right change nec">true</fRight>
+                <rLeft desc="rear left change nec">false</rLeft>
+                <rRight desc="rear right change nec">false</rRight>
+            </breaksChange>
+        </inspection>
+        <tuv company="TÜV Rheinland PrüSt. Heiligenroth-Montabaur" date="2021-10-02T12:15:05.000Z" desc="reqularly technical car check"> <!--Improve XML: add desc etc-->
+            <checks desc="checked components">
+                <tiers desc="tier tread depth">2.3</tiers>
+                <emission desc="co2 emission">13</emission>
+            </checks>
+            <defects desc="detected defects">
+                <breaks pos="fl|fr"/>
+                <airbag pos="fr"/>
+            </defects>
+        </tuv>
+    <tuv company="TÜV Rheinland PrüSt. Heiligenroth-Montabaur" date="2022-07-06T13:54:13.746+02:00" desc="reqularly technical car check"><checks desc="checked components"><tiers desc="tier tread depth">5.4</tiers><emission desc="co2 emission">12.0</emission></checks><defects desc="detected defects"><breaks pos="rl|rr"/></defects></tuv><tuv company="TÜV Rheinland PrüSt. Heiligenroth-Montabaur" date="2022-07-06T13:54:31.379+02:00" desc="reqularly technical car check"><checks desc="checked components"><tiers desc="tier tread depth">5.4</tiers><emission desc="co2 emission">12.0</emission></checks><defects desc="detected defects"><breaks pos="rl|rr"/></defects></tuv></activities>
+<car fin="WWWZZZAUZEW000001">&model;</car></checkHeft>

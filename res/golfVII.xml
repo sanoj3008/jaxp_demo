@@ -1,0 +1,13 @@
+<?xml  version="1.0" encoding="utf-8"?>
+<model name="golfVII">
+    <manufacturing>
+        <location>Wolfsburg</location>
+        <year>2014</year>
+        <batchNumber>SG14/GIR+1</batchNumber>
+    </manufacturing>
+    <engine label="crlb">
+        <power>150</power>
+        <displacement>1968</displacement>
+        <rpm>4000</rpm>
+    </engine>
+</model>
