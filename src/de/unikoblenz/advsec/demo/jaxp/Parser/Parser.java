@@ -83,7 +83,7 @@ public abstract class Parser<K> {
 
     private Document extractDocument() throws ParserConfigurationException, IOException, SAXException {
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-        DocumentBuilder db = this.processing(dbf, true);
+        DocumentBuilder db = this.processing(dbf, false);
         return db.parse(this.checkheft);
     }
 
@@ -121,6 +121,8 @@ public abstract class Parser<K> {
         dbf.setAttribute(XMLConstants.FEATURE_SECURE_PROCESSING, true);
         dbf.setAttribute("http://www.oracle.com/xml/jaxp/properties/entityExpansionLimit", 2);
         dbf.setAttribute(XMLConstants.ACCESS_EXTERNAL_DTD, "http");
+
+//        return dbf.newDocumentBuilder();
 
         dbf.setValidating(true);
         DocumentBuilder db = dbf.newDocumentBuilder();

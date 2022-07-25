@@ -1,14 +1,27 @@
 <?xml  version="1.0" encoding="utf-8"?>
 <!DOCTYPE checkHeft [
-        <!ENTITY model SYSTEM "http://192.168.1.2/golfVII.xml">
-
         <!ELEMENT checkHeft (car, activities)>
         <!ATTLIST checkHeft
                 owner CDATA #REQUIRED
                 licensePlate CDATA #REQUIRED>
 
-        <!ELEMENT car (#PCDATA)>
+        <!ELEMENT car (model)>
         <!ATTLIST car fin CDATA #REQUIRED>
+
+        <!ELEMENT model (manufacturing, engine)>
+        <!ATTLIST model name CDATA #REQUIRED>
+
+        <!ELEMENT manufacturing (location, year, batchNumber)>
+        <!ELEMENT location (#PCDATA)>
+        <!ELEMENT year (#PCDATA)>
+        <!ELEMENT batchNumber (#PCDATA)>
+
+        <!ELEMENT engine (power, displacement, rpm)>
+        <!ATTLIST engine label CDATA #REQUIRED>
+        <!ELEMENT power (#PCDATA)>
+        <!ELEMENT displacement (#PCDATA)>
+        <!ELEMENT rpm (#PCDATA)>
+
         <!ELEMENT activities (inspection*, tuv*)>
 
         <!ELEMENT inspection (oilChange?, ofChange?, afChange?, breaksChange?)>
@@ -69,7 +82,20 @@
                 pos CDATA #REQUIRED>
         ]>
 <checkHeft owner="Jonas Schell" licensePlate="AB-CD-1234">
-    <car fin="WWWZZZAUZEW000001">&model;</car>
+    <car fin="WWWZZZAUZEW000001">
+        <model name="golfVII">
+            <manufacturing>
+                <location>Wolfsburg</location>
+                <year>2014</year>
+                <batchNumber>SG14/GIR+1</batchNumber>
+            </manufacturing>
+            <engine label="crlb">
+                <power>150</power>
+                <displacement>1968</displacement>
+                <rpm>4000</rpm>
+            </engine>
+        </model>
+    </car>
     <activities>
         <inspection desc="car inspection" date="2022-02-12T09:00:00.000Z" company="KFZ-Meister Schröder">
             <oilChange desc="oil change nec">true</oilChange>

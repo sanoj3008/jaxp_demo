@@ -13,7 +13,7 @@ import java.util.TimeZone;
 public class Main {
     public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException, ParseException, TransformerException {
         // Inject xml file to parser
-        File xmlFile = new File("./res/checkheft.xml");
+        File xmlFile = new File("./res/test.xml");
         // Creation of specific parser instance automatically extracts information form provided file
         TuvRheinland tuv = new TuvRheinland(xmlFile, TimeZone.getTimeZone("Europe/Berlin"));
 

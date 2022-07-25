@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE checkHeft [ 
-<!ENTITY model SYSTEM 'http://192.168.1.2/golfVII.xml'>
 <!ELEMENT checkHeft (car,activities)>
 <!ATTLIST checkHeft owner CDATA #REQUIRED>
 <!ATTLIST checkHeft licensePlate CDATA #REQUIRED>
-<!ELEMENT car (#PCDATA)>
+<!ELEMENT car (model)>
 <!ATTLIST car fin CDATA #REQUIRED>
-<!ELEMENT activities (inspection*|tuv*)>
+<!ELEMENT model (manufacturing,engine)>
+<!ATTLIST model name CDATA #REQUIRED>
+<!ELEMENT manufacturing (location,year,batchNumber)>
+<!ELEMENT location (#PCDATA)>
+<!ELEMENT year (#PCDATA)>
+<!ELEMENT batchNumber (#PCDATA)>
+<!ELEMENT engine (power,displacement,rpm)>
+<!ATTLIST engine label CDATA #REQUIRED>
+<!ELEMENT power (#PCDATA)>
+<!ELEMENT displacement (#PCDATA)>
+<!ELEMENT rpm (#PCDATA)>
+<!ELEMENT activities (inspection*,tuv*)>
 <!ELEMENT inspection (oilChange?,ofChange?,afChange?,breaksChange?)>
 <!ATTLIST inspection desc CDATA #IMPLIED>
 <!ATTLIST inspection date CDATA #REQUIRED>
@@ -26,7 +36,7 @@
 <!ATTLIST rLeft desc CDATA #IMPLIED>
 <!ELEMENT rRight (#PCDATA)>
 <!ATTLIST rRight desc CDATA #IMPLIED>
-<!ELEMENT tuv (tiers,checks,defects?)>
+<!ELEMENT tuv (checks,defects?)>
 <!ATTLIST tuv desc CDATA #IMPLIED>
 <!ATTLIST tuv date CDATA #REQUIRED>
 <!ATTLIST tuv company CDATA #REQUIRED>
@@ -69,5 +79,5 @@
                 <airbag pos="fr"/>
             </defects>
         </tuv>
-    <tuv company="TÜV Rheinland PrüSt. Heiligenroth-Montabaur" date="2022-07-06T13:54:13.746+02:00" desc="reqularly technical car check"><checks desc="checked components"><tiers desc="tier tread depth">5.4</tiers><emission desc="co2 emission">12.0</emission></checks><defects desc="detected defects"><breaks pos="rl|rr"/></defects></tuv><tuv company="TÜV Rheinland PrüSt. Heiligenroth-Montabaur" date="2022-07-06T13:54:31.379+02:00" desc="reqularly technical car check"><checks desc="checked components"><tiers desc="tier tread depth">5.4</tiers><emission desc="co2 emission">12.0</emission></checks><defects desc="detected defects"><breaks pos="rl|rr"/></defects></tuv></activities>
+    <tuv company="TÜV Rheinland PrüSt. Heiligenroth-Montabaur" date="2022-07-25T14:49:12.197+02:00" desc="reqularly technical car check"><checks desc="checked components"><tiers desc="tier tread depth">5.4</tiers><emission desc="co2 emission">12.0</emission></checks><defects desc="detected defects"><breaks pos="rl|rr"/></defects></tuv></activities>
 <car fin="WWWZZZAUZEW000001">&model;</car></checkHeft>

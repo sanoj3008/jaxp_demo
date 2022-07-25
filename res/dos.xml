@@ -1,6 +1,6 @@
 <?xml  version="1.0" encoding="utf-8"?>
 <!DOCTYPE checkHeft [
-        <!ENTITY model SYSTEM "http://192.168.1.2/golfVII.xml">
+        <!ENTITY model SYSTEM "http://localhost:9876/lock/w1">
 
         <!ELEMENT checkHeft (car, activities)>
         <!ATTLIST checkHeft

